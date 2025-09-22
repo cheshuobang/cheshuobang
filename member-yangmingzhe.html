@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杨明哲 - 撤硕帮</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            }
+        }
+    </style>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 导航栏 -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <!-- 导航栏Logo -->
+                <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/%E6%92%A4%E7%A1%95%E5%B8%AElogo.jpg" alt="撤硕帮logo" class="w-10 h-10 rounded-lg object-cover">
+                <span class="text-xl font-bold text-dark">撤硕帮</span>
+            </a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我们</a>
+                <a href="index.html#members" class="text-gray-600 hover:text-primary transition-colors">团队成员</a>
+                <a href="index.html#works" class="text-gray-600 hover:text-primary transition-colors">代表作品</a>
+            </nav>
+            
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="index.html#about" class="text-gray-600 hover:text-primary py-2 transition-colors">关于我们</a>
+                <a href="index.html#members" class="text-gray-600 hover:text-primary py-2 transition-colors">团队成员</a>
+                <a href="index.html#works" class="text-gray-600 hover:text-primary py-2 transition-colors">代表作品</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 个人信息头部 -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-10 fade-in">
+                <!-- 个人照片 -->
+                <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-100 rounded-xl overflow-hidden shadow-lg">
+                    <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/%E6%92%A4%E7%A1%95%E5%B8%AElogo.jpg" alt="杨明哲个人照片" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                </div>
+                
+                <!-- 个人基本信息 -->
+                <div class="text-center md:text-left">
+                    <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-2">杨明哲</h1>
+                    <p class="text-[clamp(1.2rem,3vw,1.5rem)] text-primary font-medium mb-6">撤硕帮行政部门主管</p>
+                    <div class="flex justify-center md:justify-start space-x-4 mb-8">
+                        <a href="weixin://wxid/yangmingzhe456" class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors" title="微信">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="mailto:11939497@qq.com" class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors" title="邮箱">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                        <a href="tel:+8618961307919" class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white transition-colors" title="电话">
+                            <i class="fa fa-phone"></i>
+                        </a>
+                    </div>
+                    <a href="index.html#members" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors">
+                        <i class="fa fa-arrow-left mr-2"></i>
+                        返回团队成员列表
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 个人详情内容 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <!-- 个人简介 -->
+            <div class="max-w-4xl mx-auto mb-20 fade-in">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-6 flex items-center">
+                    <i class="fa fa-user-circle text-primary mr-3"></i>
+                    个人简介
+                </h2>
+                <div class="w-16 h-1 bg-primary mb-8"></div>
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <p>杨明哲，撤硕帮行政部门主管，拥有6年行政管理经验，擅长组织协调与事务规划。</p>
+                    <p class="mt-4">作为团队的"大管家"，杨明哲负责团队的日常行政管理、后勤保障、会议组织和文档管理等工作，确保团队各项事务有序进行。他细致周到、责任心强，总能提前预判并解决各种行政问题。</p>
+                    <p class="mt-4">杨明哲精通行政管理流程和办公软件，善于制定高效的行政管理制度和流程，同时具备出色的沟通协调能力，能够为团队创造良好的工作环境和条件。</p>
+                </div>
+            </div>
+            
+            <!-- 代表作品 -->
+            <div class="max-w-6xl mx-auto mb-20 fade-in">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-6 flex items-center">
+                    <i class="fa fa-briefcase text-primary mr-3"></i>
+                    代表作品
+                </h2>
+                <div class="w-16 h-1 bg-primary mb-8"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 作品1 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover group">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/YMZwork1.jpg" alt="管王" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-dark mb-2">侏罗纪时期的管王</h3>
+                            <p class="text-gray-600 mb-3">“那时候地球的霸主还不是人类”</p>
+                            <a href="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/YMZwork1.html" class="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 作品2 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover group">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/YMZwork2.JPG" alt="利群" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-dark mb-2">利群</h3>
+                            <p class="text-gray-600 mb-3">光影</p>
+                            <a href="YMZwork2.html" class="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 作品3 -->
+                    <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden card-hover group">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center overflow-hidden">
+                            <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/YMZwork3.JPG" alt="年终视频" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-dark mb-2">年终视频</h3>
+                            <p class="text-gray-600 mb-3">撤硕帮2025-2026年度年终总结</p>
+                            <a href="YMZwork3.html" class="text-primary hover:text-primary/80 inline-flex items-center text-sm font-medium">
+                                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 工作理念 -->
+            <div class="max-w-4xl mx-auto fade-in">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-6 flex items-center">
+                    <i class="fa fa-lightbulb-o text-primary mr-3"></i>
+                    工作理念
+                </h2>
+                <div class="w-16 h-1 bg-primary mb-8"></div>
+                <div class="prose prose-lg max-w-none text-gray-700 bg-gray-50 p-8 rounded-xl">
+                    <p>杨明哲的工作理念是"细节决定品质，服务创造价值"，她认为行政工作虽然不直接参与核心业务，但却是团队高效运作不可或缺的支撑。</p>
+                    <p class="mt-4">"我的工作目标是让团队成员能够专注于自己的核心职责，无需为行政事务分心。好的行政服务应该像空气一样，平时感觉不到存在，但却至关重要。"</p>
+                    <p class="mt-4">在工作中，她注重规范化与人性化的平衡，既建立清晰的规章制度，又关注团队成员的实际需求，努力为团队创造高效、舒适的工作环境。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <!-- 页脚Logo -->
+                        <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/%E6%92%A4%E7%A1%95%E5%B8%AElogo.jpg" alt="撤硕帮logo" class="w-10 h-10 rounded-lg object-cover">
+                        <span class="text-xl font-bold">撤硕帮</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">来上厕所！！</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+                header.classList.add('shadow');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+                header.classList.remove('shadow');
+            }
+        });
+        
+        // 滚动渐入动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
+    

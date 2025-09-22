@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品五 - 撤硕帮作品详情</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+    
+    <style>
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* 渐入动画 */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 作品预览图容器样式 */
+        .work-preview-container {
+            position: relative;
+            overflow: hidden;
+            background-color: #f9fafb;
+        }
+        
+        /* 作品图片悬停效果 */
+        .work-preview img {
+            transition: transform 0.5s ease;
+        }
+        
+        .work-preview:hover img {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 导航栏 -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <!-- 导航栏Logo -->
+                <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/%E6%92%A4%E7%A1%95%E5%B8%AElogo.jpg" alt="撤硕帮logo" class="w-10 h-10 rounded-lg object-cover">
+                <span class="text-xl font-bold text-dark">撤硕帮</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我们</a>
+                <a href="index.html#members" class="text-gray-600 hover:text-primary transition-colors">团队成员</a>
+                <a href="index.html#works" class="text-gray-600 hover:text-primary transition-colors">代表作品</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="index.html#about" class="text-gray-600 hover:text-primary py-2 transition-colors">关于我们</a>
+                <a href="index.html#members" class="text-gray-600 hover:text-primary py-2 transition-colors">团队成员</a>
+                <a href="index.html#works" class="text-gray-600 hover:text-primary py-2 transition-colors">代表作品</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 作品详情头部 -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto fade-in-section">
+                <a href="index.html#works" class="inline-flex items-center text-gray-600 hover:text-primary transition-colors mb-6">
+                    <i class="fa fa-arrow-left mr-2"></i>
+                    返回作品列表
+                </a>
+                
+                <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-dark mb-4">作品五</h1>
+                
+                <div class="flex flex-wrap gap-6 text-gray-600 mb-8">
+                    <div class="flex items-center">
+                        <i class="fa fa-calendar text-primary mr-2"></i>
+                        <span>创作日期: 2023年10月18日</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fa fa-user text-primary mr-2"></i>
+                        <span>作者: 
+                            <a href="member-zhangjiazhen.html" class="text-primary hover:underline">张家振</a>, 
+                            <a href="member-wangyongrun.html" class="text-primary hover:underline">王永润</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品预览区域 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto fade-in-section">
+                <div class="work-preview-container rounded-xl shadow-md p-4 md:p-8 mb-12">
+                    <div class="work-preview aspect-video bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+                        <!-- 作品大图预览 -->
+                        <img src="https://picsum.photos/1200/675?random=5" alt="作品五预览图" class="w-full h-full object-contain">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 作品详情内容 -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- 作品简介 -->
+                <div class="mb-16 fade-in-section">
+                    <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-6 flex items-center">
+                        <i class="fa fa-info-circle text-primary mr-3"></i>
+                        作品简介
+                    </h2>
+                    <div class="w-16 h-1 bg-primary mb-8"></div>
+                    <div class="prose prose-lg max-w-none text-gray-700">
+                        <p>作品五是撤硕帮代理帮主与行动策划共同完成的战略型作品，展现了团队在决策与执行层面的卓越能力。这部作品以创新的表现形式探讨了战略与执行的辩证关系。</p>
+                        <p class="mt-4">作品在创作过程中经历了多次战略调整和方案优化，最终形成了这部既有宏观视野又不失细节表现的综合性作品。</p>
+                    </div>
+                </div>
+                
+                <!-- 创作背景 -->
+                <div class="mb-16 fade-in-section">
+                    <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-6 flex items-center">
+                        <i class="fa fa-lightbulb-o text-primary mr-3"></i>
+                        创作背景
+                    </h2>
+                    <div class="w-16 h-1 bg-primary mb-8"></div>
+                    <div class="prose prose-lg max-w-none text-gray-700">
+                        <p>本作品创作于团队面临重要转型期，旨在探索新的发展方向和模式。作品的创作过程本身就是一次战略决策与行动执行的实践，为团队后续发展提供了重要参考。</p>
+                        <p class="mt-4">通过这部作品，我们希望传递"好的战略需要强有力的执行，而灵活的执行又能反哺战略优化"的理念，这也是撤硕帮能够不断发展的重要经验。</p>
+                    </div>
+                </div>
+                
+                <!-- 相关作品推荐 -->
+                <div class="fade-in-section">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <!-- 页脚Logo -->
+                        <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/%E6%92%A4%E7%A1%95%E5%B8%AElogo.jpg" alt="撤硕帮logo" class="w-10 h-10 rounded-lg object-cover">
+                        <span class="text-xl font-bold">撤硕帮</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">来上厕所！！</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2022 撤硕帮 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+                header.classList.add('shadow');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+                header.classList.remove('shadow');
+            }
+        });
+        
+        // 滚动动画
+        const fadeInElements = document.querySelectorAll('.fade-in-section');
+        
+        const checkFade = () => {
+            fadeInElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85) {
+                    element.classList.add('is-visible');
+                }
+            });
+        };
+        
+        // 初始检查
+        window.addEventListener('load', checkFade);
+        // 滚动时检查
+        window.addEventListener('scroll', checkFade);
+    </script>
+</body>
+</html>
+    

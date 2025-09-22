@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>撤硕帮</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+    
+    <style>
+        /* 基础动画定义 */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* 滚动触发动画的元素初始状态 */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+    <!-- 导航栏 -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <!-- 导航栏Logo -->
+                <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/%E6%92%A4%E7%A1%95%E5%B8%AElogo.jpg" alt="撤硕帮logo" class="w-10 h-10 rounded-lg object-cover">
+                <span class="text-xl font-bold text-dark">撤硕帮</span>
+            </a>
+            
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-primary transition-colors">关于我们</a>
+                <a href="#members" class="text-gray-600 hover:text-primary transition-colors">团队成员</a>
+                <a href="#works" class="text-gray-600 hover:text-primary transition-colors">代表作品</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#about" class="text-gray-600 hover:text-primary py-2 transition-colors">关于我们</a>
+                <a href="#members" class="text-gray-600 hover:text-primary py-2 transition-colors">团队成员</a>
+                <a href="#works" class="text-gray-600 hover:text-primary py-2 transition-colors">代表作品</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-green-50">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold text-dark mb-6 leading-tight text-shadow fade-in">
+                撤硕帮
+            </h1>
+            <p class="text-[clamp(1.1rem,2vw,1.5rem)] text-gray-600 max-w-2xl mx-auto fade-in" style="animation-delay: 0.2s">
+                这是一个纯粹的地方
+            </p>
+            <div class="mt-12 fade-in" style="animation-delay: 0.4s">
+                <a href="#about" class="bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-lg inline-flex items-center transition-all shadow-lg hover:shadow-xl">
+                    上个撤硕
+                    <i class="fa fa-arrow-down ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队简介区域 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">关于我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-10 scroll-animate">
+                <!-- Logo展示（替换为实际Logo链接） -->
+                <div class="w-full md:w-1/3 aspect-square max-w-md mx-auto md:mx-0 rounded-xl overflow-hidden border-2 border-gray-200 hover:border-primary transition-colors">
+                    <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/%E6%92%A4%E7%A1%95%E5%B8%AElogo.jpg" alt="撤硕帮logo" class="w-full h-full object-cover">
+                </div>
+                
+                <!-- 团队简介 -->
+                <div class="w-full md:w-2/3">
+                    <h3 class="text-2xl font-bold text-dark mb-6">撤硕帮 团队简介</h3>
+                    <div class="prose prose-lg max-w-none text-gray-700">
+                        <p>尚未编辑</p>
+                        <p class="mt-6">我们是一个由6位志同道合的成员组成的团队，每个人在团队中都扮演着重要角色，共同为团队的目标而努力。</p>
+                        <p>我们注重团队协作，追求卓越，致力于创造出令人印象深刻的作品和成就。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 团队成员展示区域 -->
+    <section id="members" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">团队成员</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">认识我们团队的核心成员，每个人都在自己的岗位上发光发热</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 成员1：张峻瑜（帮主） -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate">
+                    <a href="member-zhangjunyu.html" class="block">
+                        <!-- 成员图片使用链接 -->
+                        <div class="member-photo-container aspect-[4/3] bg-gray-100 border-b">
+                            <img src="https://picsum.photos/id/1012/800/600" alt="张峻瑜的个人照片" class="member-photo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark">张峻瑜</h3>
+                            <p class="text-primary font-medium mb-4">撤硕帮帮主</p>
+                            <p class="text-gray-600">负责团队整体战略规划与决策，带领团队迈向新的高度。</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 成员2：张家振（代理帮主） -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.1s">
+                    <a href="member-zhangjiazhen.html" class="block">
+                        <!-- 成员图片使用链接 -->
+                        <div class="member-photo-container aspect-[4/3] bg-gray-100 border-b">
+                            <img src="https://picsum.photos/id/1025/800/600" alt="张家振的个人照片" class="member-photo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark">张家振</h3>
+                            <p class="text-primary font-medium mb-4">撤硕帮代理帮主</p>
+                            <p class="text-gray-600">协助帮主处理团队日常事务，确保团队运作顺畅高效。</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 成员3：王永润（行动策划） -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.2s">
+                    <a href="member-wangyongrun.html" class="block">
+                        <!-- 成员图片使用链接 -->
+                        <div class="member-photo-container aspect-[4/3] bg-gray-100 border-b">
+                            <img src="https://picsum.photos/id/1074/800/600" alt="王永润的个人照片" class="member-photo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark">王永润</h3>
+                            <p class="text-primary font-medium mb-4">撤硕帮行动策划</p>
+                            <p class="text-gray-600">负责团队各类活动的策划与组织，富有创新思维和执行力。</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 成员4：戚航宁（首席摄影师） -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.3s">
+                    <a href="member-qihangning.html" class="block">
+                        <!-- 成员图片使用链接 -->
+                        <div class="member-photo-container aspect-[4/3] bg-gray-100 border-b">
+                            <img src="https://picsum.photos/id/1062/800/600" alt="戚航宁的个人照片" class="member-photo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark">戚航宁</h3>
+                            <p class="text-primary font-medium mb-4">撤硕帮首席摄影师</p>
+                            <p class="text-gray-600">用镜头记录团队精彩瞬间，擅长捕捉人物的情感与故事。</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 成员5：杨明哲（行政主管） -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.4s">
+                    <a href="member-yangmingzhe.html" class="block">
+                        <!-- 成员图片使用链接 -->
+                        <div class="member-photo-container aspect-[4/3] bg-gray-100 border-b">
+                            <img src="https://picsum.photos/id/1027/800/600" alt="杨明哲的个人照片" class="member-photo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark">杨明哲</h3>
+                            <p class="text-primary font-medium mb-4">撤硕帮行政部门主管</p>
+                            <p class="text-gray-600">负责团队行政事务管理，保障团队各项工作有序进行。</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 成员6：李培硕（看门狗） -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.5s">
+                    <a href="member-lipeishuo.html" class="block">
+                        <!-- 成员图片使用链接 -->
+                        <div class="member-photo-container aspect-[4/3] bg-gray-100 border-b">
+                            <img src="https://picsum.photos/id/1083/800/600" alt="李培硕的个人照片" class="member-photo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark">李培硕</h3>
+                            <p class="text-primary font-medium mb-4">看门狗</p>
+                            <p class="text-gray-600">负责团队安全保障工作，警惕性高，责任心强。</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 代表作品展示区域 -->
+    <section id="works" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">代表作品</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">我们团队的精选作品展示，每一项都凝聚了我们的心血与创意</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 作品1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate">
+                    <a href="work1.html" class="block">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center">
+                            <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/work1.jpg" alt="作品一缩略图" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">管王</h3>
+                            <p class="text-gray-600 mb-3">“那时候地球的霸主还不是人类”</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar-o mr-1"></i>
+                                <span>2023年6月</span>
+                                <span class="mx-2">•</span>
+                                <i class="fa fa-user-o mr-1"></i>
+                                <span>杨明哲</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 作品2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.1s">
+                    <a href="work2.html" class="block">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center">
+                            <img src="https://picsum.photos/800/450?random=2" alt="作品二缩略图" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">作品二</h3>
+                            <p class="text-gray-600 mb-3">创新尝试，融合多种表现手法</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar-o mr-1"></i>
+                                <span>2023年7月</span>
+                                <span class="mx-2">•</span>
+                                <i class="fa fa-user-o mr-1"></i>
+                                <span>王永润, 戚航宁</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 作品3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.2s">
+                    <a href="work3.html" class="block">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center">
+                            <img src="https://picsum.photos/800/450?random=3" alt="作品三缩略图" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">作品三</h3>
+                            <p class="text-gray-600 mb-3">团队协作典范，多方参与创作</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar-o mr-1"></i>
+                                <span>2023年8月</span>
+                                <span class="mx-2">•</span>
+                                <i class="fa fa-user-o mr-1"></i>
+                                <span>杨明哲, 李培硕</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 作品4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.3s">
+                    <a href="work4.html" class="block">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center">
+                            <img src="https://picsum.photos/800/450?random=4" alt="作品四缩略图" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">作品四</h3>
+                            <p class="text-gray-600 mb-3">国庆主题创作，获得广泛关注</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar-o mr-1"></i>
+                                <span>2023年9月</span>
+                                <span class="mx-2">•</span>
+                                <i class="fa fa-user-o mr-1"></i>
+                                <span>张峻瑜, 杨明哲</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 作品5 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.4s">
+                    <a href="work5.html" class="block">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center">
+                            <img src="https://picsum.photos/800/450?random=5" alt="作品五缩略图" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">作品五</h3>
+                            <p class="text-gray-600 mb-3">纪实风格作品，记录真实瞬间</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar-o mr-1"></i>
+                                <span>2023年10月</span>
+                                <span class="mx-2">•</span>
+                                <i class="fa fa-user-o mr-1"></i>
+                                <span>戚航宁, 王永润</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- 作品6 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover scroll-animate" style="animation-delay: 0.5s">
+                    <a href="work6.html" class="block">
+                        <div class="aspect-video bg-gray-100 flex items-center justify-center">
+                            <img src="https://picsum.photos/800/450?random=6" alt="作品六缩略图" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-dark mb-2">作品六</h3>
+                            <p class="text-gray-600 mb-3">创新安全主题，独特视角呈现</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fa fa-calendar-o mr-1"></i>
+                                <span>2023年11月</span>
+                                <span class="mx-2">•</span>
+                                <i class="fa fa-user-o mr-1"></i>
+                                <span>戚航宁, 李培硕</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <!-- 页脚Logo -->
+                        <img src="file:///C:/Users/Lenovo/Desktop/cheshuo-team-website/%E6%92%A4%E7%A1%95%E5%B8%AElogo.jpg" alt="撤硕帮logo" class="w-10 h-10 rounded-lg object-cover">
+                        <span class="text-xl font-bold">撤硕帮</span>
+                    </div>
+                    <p class="mt-2 text-gray-400">来上厕所！！</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2022 撤硕帮 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+                header.classList.add('shadow');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+                header.classList.remove('shadow');
+            }
+        });
+        
+        // 滚动动画
+        const animateElements = document.querySelectorAll('.scroll-animate');
+        
+        const checkScroll = () => {
+            animateElements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight * 0.85) {
+                    setTimeout(() => {
+                        element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        };
+        
+        // 初始检查
+        window.addEventListener('load', checkScroll);
+        // 滚动时检查
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+</html>
